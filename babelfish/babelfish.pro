@@ -5,3 +5,6 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp
+
+DISTFILES += \
+    testcase.txt
