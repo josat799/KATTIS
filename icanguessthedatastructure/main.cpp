@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
-#include <fstream>
+
 
 using namespace std;
 
@@ -18,15 +18,15 @@ using namespace std;
 
 int main() {
 
-    string input;
+    int input;
     int cmdLines = 0;
 
     bool isQueue;
     bool isStack;
     bool isPQueue;
 
-    ifstream myfile("example.in");
-    while (getline(myfile, input)) {
+
+    while (cin >> input) {
 
         queue<int> q;
         priority_queue<int> pq;
@@ -35,18 +35,13 @@ int main() {
         isPQueue = true;
         isStack = true;
 
-        if (input.size() == 1) {
-            cmdLines = stoi(input);
-        }
-        if (cmdLines == 0) {
-            return 0;
-        }
+        cmdLines = input;
 
         for (int i = 0; i < cmdLines; i++) {
-            getline(myfile, input);
-
-            int value =  stoi(input.substr(2, 3));
-            if (stoi(input.substr(0, 1)) == ADD) {
+            int value;
+            cin >> input;
+            cin >> value;
+            if (input == ADD) {
                 if (isQueue) q.push(value);
                 if (isPQueue) pq.push(value);
                 if (isStack) s.push(value);
@@ -83,6 +78,5 @@ int main() {
 
 
     }
-    //cout << endl;
     return 0;
 }
